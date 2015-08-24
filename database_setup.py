@@ -34,7 +34,19 @@ class Category(Base):
 	name= Column(String(80))
 	no_of_visits = Column(Integer)
 	created_date = Column(DateTime(timezone=True))
+	user_id = Column(Integer, ForeignKey('users.id'))
+	users = relationship(Users)
 
+	@property
+	def serialize(self):
+		#Returns object in easily serializable format
+		return {
+			'id' : self.id,
+			'name' : self.name,
+			'no_of_visits' : self.no_of_visits,
+			'created_date' : self.created_date,
+			'user_id' : self.user_id,
+		}
 
 
 class Item(Base):
@@ -52,7 +64,26 @@ class Item(Base):
 	category_id = Column(Integer, ForeignKey('category.id'))
 	category = relationship(Category)
 	created_date = Column(DateTime(timezone=True))
+	user_id = Column(Integer, ForeignKey('users.id'))
+	users = relationship(Users)
 
+	@property
+	def serialize(self):
+		#Returns object in easily serializable format
+		return {
+			'id' : self.id,
+			'name' : self.name,
+			'description' : self.description,
+			'picture_1' : self.picture_1,
+			'picture_2' : self.picture_2,
+			'picture_3' : self.picture_3,
+			'picture_4' : self.picture_4,
+			'no_of_likes' : self.no_of_likes,
+			'no_of_visits' : self.no_of_visits,
+			'category_id' : self.category_id,
+			#'category' : self.category,
+			'created_date' : self.created_date,
+		}
 
 class Comments_Item(Base):
 	__tablename__='comments_item'
