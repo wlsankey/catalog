@@ -2,7 +2,7 @@
 
 #INITIAL STEPS: ADJUSTING THE DEVELOPMENT ENVIRONMENT
 
-This step demonstates how to update your vagrant configuration for the appropriate forward ports
+This step demonstates how to update your vagrant configuration for the appropriate forward ports 
 
 1. From your command line interface (git bash recommmeneded), go to the appropriate folder where you would like to setup and run the application and files.
 2. Once there, run vagrant environment (or setup a new vagrant environment using "vagrant init" and the virtualbox preferred--in this case "ubuntu/trusty32"). Type "vagrant init ubuntu/trusty32". If you are just setting up a vagrant environment be sure to adjust the Vagrantfile and add the following provisioning and configuration information:
